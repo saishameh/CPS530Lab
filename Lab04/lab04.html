@@ -11,8 +11,8 @@
         }
 
         header {
+            color: white;
             background: #71859b;
-            color: antiquewhite;
             padding: 10px 0%;
             text-align: center;
         }
@@ -42,13 +42,40 @@
             border-bottom: 1px solid #ccc;
             padding-bottom: 20px;
             background-color: white; 
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            position: relative;
+            padding: .5em;
         }
 
 
         .palindrome {color: green;}
         .not-palindrome {color: red;}
+
+        .palindrome-legend {
+            position: absolute;
+            right: .5em;
+            top: .5em;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background: #71859b;
+            color: white;
+            padding: .5em;
+            display: flex;
+            justify-content: center; /* Centers the list horizontally */
+        }
+
+        .palindrome-legend ul {
+            list-style-type: disc;
+            padding-left: 1.3em;
+        }
+
+        .palindrome-legend li:first-child::marker {
+            color: green;
+        }
+
+        .palindrome-legend li:last-child::marker {
+            color: red;
+        }
     </style>
 </head>
 
@@ -70,6 +97,12 @@
         </div>
 
         <div id="palindrome-section">
+            <div class="palindrome-legend">
+                <ul>
+                    <li>Palindrome</li>
+                    <li>Not a palindrome</li>
+                </ul>
+            </div>
             <h2>Part 2: Palindrome</h2>
             <div id="palindrome"></div>
         </div>
