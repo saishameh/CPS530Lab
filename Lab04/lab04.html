@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab04</title>
+    <style>
+        .secure { color: green; }
+        .insecure { color: red; }
+
+        .palindrome {color: green;}
+        .not-palindrome {color: red;}
+    </style>
+</head>
+
+<body>`
+    <header>
+        <h1>Lab04</h1>
+        <nav>
+            <ul>
+                <li><a href="#bookmarks">Bookmarks</a></li>
+                <li><a href="#palindrome">Palindrome</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="bookmarks">
+            <h2>Part 1: Bookmarks</h2>
+        </div>
+
+        <div id="palindrome">
+            <h2>Part 2: Palindrome</h2>
+        </div>
+    </main>
+
+    <script>
+        function displayBookmarks() {
+            const bookmarks = [
+                "https://www.github.com",
+                "http://www.stackoverflow.com",
+                "https://www.linkedin.com",
+                "http://www.reddit.com"
+                ];
+
+            const sitesDiv = document.getElementById("bookmarks");
+            let linksHTML = "";
+
+            for (let link of bookmarks) {
+                const isSecure = link.startsWith("https://");
+                const icon = isSecure ? "🔒" : "🔓";
+                const colorClass = isSecure ? "secure" : "insecure";
+                linksHTML += `<p class="${colorClass}">${icon} ${link}</p>`;
+            }
+
+            sitesDiv.innerHTML = linksHTML;
+        }
+
+        function cleanString(str) {
+            return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
+
+        function isPalindrome(str) {
+            const cleaned = cleanString(str);
+            return cleaned === cleaned.split('').reverse().join('');
+        }
+
+        function checkPalindromes() {
+            const strings = [
+                "Drab as a fool, aloof as a bard.",
+                "It ain't over till it's over",
+                "radar",
+                "When you come to a fork in the road, take it",
+                "Marge lets Norah see Sharon's telegram."
+            ];
+
+            const palindromeDiv = document.getElementById("palindrome");
+            let resultsHTML = "";
+
+            for (let str of strings) {
+                const isPal = isPalindrome(str);
+                const className = isPal ? 'palindrome' : 'not-palindrome';
+                resultsHTML += `<p class="${className}">"${str}" ${isPal ? 'is' : 'is not'} a palindrome.</p>`;
+            }
+
+            palindromeDiv.innerHTML = resultsHTML;
+        }
+
+        
+        displayBookmarks();
+        checkPalindromes();
+    </script>
+
+</body>
+
+</html>

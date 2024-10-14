@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.bg-custom {
+    background-color: #cf6eb5;
+    color: #fff;
+    padding: 1rem;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.col img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}

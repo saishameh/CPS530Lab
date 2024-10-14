@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison: Custom CSS(Responsive) vs Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .comparison-header {
+            background-color: #cf6eb5;
+            color: white;
+            padding: 2rem;
+        }
+
+        .comparison-content {
+            padding: 2rem;
+        }
+
+        .btn-custom {
+            background-color: #cf6eb5;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="comparison-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <img src="flag.jpg" alt="Hungarian flag" style="width: 60px; height: auto;">
+                </div>
+                <div class="col">
+                    <h1 class="text-center">Comparison: Custom CSS(Responsive) vs Bootstrap - Hungary</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="comparison-content">
+        <div class="container-fluid">
+            <section class="mb-4">
+                <h2>Implementation Comparison</h2>
+                <p>
+                    Implementing the "Discover Hungary" webpage using custom CSS (Part A) and Bootstrap (Part B)
+                    presented a few challenges and benefits. With custom CSS, I had to spend more time setting up the
+                    layout and styling everything from scratch. It was a bit tricky but gave me a lot of control over
+                    how things looked. On the other hand, using Bootstrap was much quicker. It has ready-made components
+                    that made building a responsive design easy</p>
+                <p>
+                    I found the Bootstrap version to be easier and faster to work with. The documentation for Bootstrap
+                    was really helpful, which made fixing issues simpler. With Bootstrap (Part B), things were much
+                    quicker. I used Bootstrap's grid system with classes like <code>row</code> and <code>col</code> to
+                    create responsive layouts easily. The card component was super helpful for displaying attractions -
+                    I just had to use <code>card</code>, <code>card-body</code>, and <code>card-title</code> classes to
+                    get a nice, consistent look. I also used Bootstrap's utility classes like <code>text-center</code>
+                    and <code>mb-4</code> for quick styling and spacing. While it was faster and easier with Bootstrap,
+                    I felt like I had less control over the fine details of the design compared to the custom CSS
+                    version.
+                </p>
+            </section>
+
+            <section>
+                <h2>Links to Implementations</h2>
+                <div class="text-center">
+                    <a href="lab03a.html" class="btn btn-custom m-2">View CSS Responsive Version</a>
+                    <a href="lab03b.html" class="btn btn-custom m-2">View Bootstrap Version</a>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
