@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab04</title>
     <style>
-        .secure { color: green; }
-        .insecure { color: red; }
-
         .palindrome {color: green;}
         .not-palindrome {color: red;}
     </style>
@@ -26,12 +23,14 @@
     </header>
 
     <main>
-        <div id="bookmarks">
+        <div id="bookmarks-section">
             <h2>Part 1: Bookmarks</h2>
+            <div id="bookmarks"></div>
         </div>
 
-        <div id="palindrome">
+        <div id="palindrome-section">
             <h2>Part 2: Palindrome</h2>
+            <div id="palindrome"></div>
         </div>
     </main>
 
@@ -81,7 +80,7 @@
             for (let str of strings) {
                 const isPal = isPalindrome(str);
                 const className = isPal ? 'palindrome' : 'not-palindrome';
-                resultsHTML += `<p class="${className}">"${str}" ${isPal ? 'is' : 'is not'} a palindrome.</p>`;
+                resultsHTML += `<p class="${className}">"${str}"</p>`;
             }
 
             palindromeDiv.innerHTML = resultsHTML;
