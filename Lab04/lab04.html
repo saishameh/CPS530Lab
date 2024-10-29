@@ -61,7 +61,7 @@
             color: white;
             padding: .5em;
             display: flex;
-            justify-content: center; /* Centers the list horizontally */
+            justify-content: center;
         }
 
         .palindrome-legend ul {
@@ -76,6 +76,13 @@
         .palindrome-legend li:last-child::marker {
             color: red;
         }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
     </style>
 </head>
 
@@ -122,9 +129,8 @@
 
             for (let link of bookmarks) {
                 const isSecure = link.startsWith("https://");
-                const icon = isSecure ? "🔒" : "🔓";
-                const colorClass = isSecure ? "secure" : "insecure";
-                linksHTML += `<p class="${colorClass}">${icon} ${link}</p>`;
+                const icon = isSecure ? "lock.jpg" : "unlock.jpg";
+                linksHTML += `<p><img class="icon" src="${icon}" alt="${isSecure ? 'Secure' : 'Insecure'}"> ${link}</p>`;
             }
 
             sitesDiv.innerHTML = linksHTML;
