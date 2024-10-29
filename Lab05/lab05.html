@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab05</title>
+</head>
+<body>
+    <h1>Problem 1: Form Validation</h1>
+    
+    <h2>Enter your information below:</h2>
+    <form id="userInfo"> 
+        <label id="userName">Name:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label id="userAddress">Address:</label>
+        <input type="text" id="address" required><br><br>
+
+        <label id="userPhoneNumber">Phone Number:</label>
+        <input type="text" id="phonenumber" required><br><br>
+
+        <button type="button" id="button">Submit Form</button>
+    </form>
+
+    <div id="display"></div>
+
+    <script>
+        // Validate name: only letters and spaces
+        function validateName(name) {
+            const nameReg = /^[a-zA-Z\s]+$/;
+            return name.match(nameReg) !== null;
+        }
+
+        // Validate phone number in format (416) 555-5555
+        function validateNumber(phonenumber) {
+            const phoneReg = /^\(\d{3}\)\s\d{3}-\d{4}$/;
+            return phonenumber.match(phoneReg) !== null;
+        }
+
+        // Format phone number to 416-555-5555
+        function formatPhoneNumber(phonenumber) {
+            return phonenumber.replace(/\((\d{3})\)\s(\d{3})-(\d{4})/, "$1-$2-$3");
+        }
+
+        // Display the formatted information
+        function displayFormatted(name, address, formattedPhone) {
+            document.getElementById("display").innerHTML = `
+            <p>Name: ${name}</p>
+            <p>Address: ${address}</p>
+            <p>Phone: ${formattedPhone}</p>
+            `;
+        }
+
+        
+        document.getElementById("button").addEventListener("click", function () {
+            const name = document.getElementById("name").value;
+            const address = document.getElementById("address").value;
+            const phonenumber = document.getElementById("phonenumber").value;
+
+            // Validate
+            if (!validateName(name)) {
+                alert("Please enter a valid name (letters only).");
+                return;
+            }
+            if (!validateNumber(phonenumber)) {
+                alert("Please enter a phone number in the format (416) 555-5555.");
+                return;
+            }
+
+            // Format the number and display results
+            const formattedPhone = formatPhoneNumber(phonenumber);
+            displayFormatted(name, address, formattedPhone);
+        });
+    </script>
+</body>
+</html>
