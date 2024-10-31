@@ -8,6 +8,14 @@
 
     <style>
         
+        .problem-box {
+            border: 2px solid #31373d; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            background-color: rgb(222, 204, 204); 
+        }
+
         .image-container {
             position: relative; 
         }
@@ -39,6 +47,7 @@
 </head>
 <body>
 
+    <div class = "problem-box" >
     <h1>Problem 1: Form Validation</h1>
     
     <h2>Enter your information below:</h2>
@@ -56,6 +65,8 @@
     </form>
 
     <div id="display"></div>
+
+</div>
 
     <script>
         // Validate name: only letters and spaces
@@ -106,11 +117,14 @@
         });
     </script>
 
+    <div class="problem-box">
     <h1>Problem 2: Real-Time Count</h1>
     <textarea id="textInput" rows="4" cols="50"></textarea>
     
     <div id="charCount" class="counter">Characters: 0</div>
     <div id="letterCount" class="counter">Letters: 0</div>
+
+
 
     <script>
         const textInput = document.getElementById('textInput');
@@ -127,13 +141,17 @@
         }
         textInput.addEventListener('input', updateCount);
     </script>
+    </div>
 
+<div class = "problem-box" >
     <h1>Problem 3: Maximization of Image</h1>
 
     <div class="image-container">
         <img src="aurora.jpg" alt="Aurora Borealis" id="myImage">
         <span id="close_fullscreen" class="material-symbols-outlined fullscreen-icon">close_fullscreen</span>
     </div>
+
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -166,5 +184,6 @@
             });
         });
     </script>
+    </div>
 </body>
 </html>
