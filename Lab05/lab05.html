@@ -7,17 +7,51 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close_fullscreen" />
 
     <style>
-        
-        .problem-box {
-            border: 2px solid #31373d; 
+        header {
+            background-color: #007BFF; 
+            color: white; 
+            text-align: center; 
+            font-family: 'Arial', sans-serif; 
             border-radius: 10px; 
-            padding: 20px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
             margin-bottom: 20px; 
-            background-color: rgb(222, 204, 204); 
+            padding: 20px; 
+        }
+
+        header h1 {
+            margin: 0; 
+            font-size: 2em; 
+        }
+
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+
+        button:hover {
+            background-color: #0056b3; 
+        }
+
+        button {
+            background-color: #007BFF; 
+            color: white;
+            border: none; 
+            cursor: pointer; 
+            padding: 10px 15px; 
+            border-radius: 5px; 
+        }
+
+        h1 {
+            margin-bottom: 10px; 
+        }
+
+        h2 {
+            margin-bottom: 10px; 
         }
 
         .image-container {
             position: relative; 
+            margin-bottom: 30px; 
         }
 
         #myImage {
@@ -42,46 +76,72 @@
             cursor: pointer;
             z-index: 10;
         }
+
+        
+        .problem {
+            margin-bottom: 40px; 
+        }
     </style>
 
 </head>
 <body>
 
-    <div class = "problem-box" >
-    <h1>Problem 1: Form Validation</h1>
-    
-    <h2>Enter your information below:</h2>
-    <form id="userInfo"> 
-        <label id="userName">Name:</label>
-        <input type="text" id="name" required><br><br>
+    <header>
+        <h1>Lab05 - JavaScript and JQuery</h1>
+    </header>
 
-        <label id="userAddress">Address:</label>
-        <input type="text" id="address" required><br><br>
+    <div class="problem">
+        <h1>Problem 1: Form Validation</h1>
+        
+        <h2>Enter your information below:</h2>
+        <form id="userInfo"> 
+            <label id="userName">Name:</label>
+            <input type="text" id="name" required><br><br>
 
-        <label id="userPhoneNumber">Phone Number:</label>
-        <input type="text" id="phonenumber" required><br><br>
+            <label id="userAddress">Address:</label>
+            <input type="text" id="address" required><br><br>
 
-        <button type="button" id="button">Submit Form</button>
-    </form>
+            <label id="userPhoneNumber">Phone Number:</label>
+            <input type="text" id="phonenumber" required><br><br>
 
-    <div id="display"></div>
+            <button type="button" id="button">Submit Form</button>
+        </form>
 
-</div>
+        <div id="display"></div>
+    </div>
 
+    <div class="problem">
+        <h1>Problem 2: Real-Time Count</h1>
+        <textarea id="textInput" rows="4" cols="50"></textarea>
+        
+        <div id="charCount" class="counter">Characters: 0</div>
+        <div id="letterCount" class="counter">Letters: 0</div>
+    </div>
+
+    <div class="problem">
+        <h1>Problem 3: Maximization of Image</h1>
+
+        <div class="image-container">
+            <img src="aurora.jpg" alt="Aurora Borealis" id="myImage">
+            <span id="close_fullscreen" class="material-symbols-outlined fullscreen-icon">close_fullscreen</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Validate name: only letters and spaces
+        // Validate name
         function validateName(name) {
             const nameReg = /^[a-zA-Z\s]+$/;
             return name.match(nameReg) !== null;
         }
 
-        // Validate phone number in format (416) 555-5555
+        // Validate phone number 
         function validateNumber(phonenumber) {
             const phoneReg = /^\(\d{3}\)\s\d{3}-\d{4}$/;
             return phonenumber.match(phoneReg) !== null;
         }
 
-        // Format phone number to 416-555-5555
+        // Format phone number 
         function formatPhoneNumber(phonenumber) {
             return phonenumber.replace(/\((\d{3})\)\s(\d{3})-(\d{4})/, "$1-$2-$3");
         }
@@ -95,7 +155,6 @@
             `;
         }
 
-        
         document.getElementById("button").addEventListener("click", function () {
             const name = document.getElementById("name").value;
             const address = document.getElementById("address").value;
@@ -115,18 +174,7 @@
             const formattedPhone = formatPhoneNumber(phonenumber);
             displayFormatted(name, address, formattedPhone);
         });
-    </script>
 
-    <div class="problem-box">
-    <h1>Problem 2: Real-Time Count</h1>
-    <textarea id="textInput" rows="4" cols="50"></textarea>
-    
-    <div id="charCount" class="counter">Characters: 0</div>
-    <div id="letterCount" class="counter">Letters: 0</div>
-
-
-
-    <script>
         const textInput = document.getElementById('textInput');
         const charCount = document.getElementById('charCount');
         const letterCount = document.getElementById('letterCount');
@@ -140,21 +188,7 @@
             letterCount.textContent = `Letters only: ${letterChars}`;
         }
         textInput.addEventListener('input', updateCount);
-    </script>
-    </div>
 
-<div class = "problem-box" >
-    <h1>Problem 3: Maximization of Image</h1>
-
-    <div class="image-container">
-        <img src="aurora.jpg" alt="Aurora Borealis" id="myImage">
-        <span id="close_fullscreen" class="material-symbols-outlined fullscreen-icon">close_fullscreen</span>
-    </div>
-
-    
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
         $(document).ready(function(){
             let isFullScreen = false;
             $("#myImage").click(function(){
@@ -166,7 +200,7 @@
                         left: 0           
                     }, 2000);
 
-                    $("#close_fullscreen").fadeIn(200); // Show the close icon
+                    $("#close_fullscreen").fadeIn(200); 
                     isFullScreen = true;
                 }
             });
@@ -184,6 +218,5 @@
             });
         });
     </script>
-    </div>
 </body>
 </html>
