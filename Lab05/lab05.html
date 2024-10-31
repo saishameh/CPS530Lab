@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab05</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fullscreen" />
+
+    <style>
+        #myImage {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Problem 1: Form Validation</h1>
@@ -70,6 +79,55 @@
             // Format the number and display results
             const formattedPhone = formatPhoneNumber(phonenumber);
             displayFormatted(name, address, formattedPhone);
+        });
+    </script>
+
+    <h1>Problem 2: Real-Time Count</h1>
+    <textarea id="textInput" rows="4" cols="50"></textarea>
+    
+    <div id="charCount" class="counter">Characters: 0</div>
+    <div id="letterCount" class="counter">Letters: 0</div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const charCount = document.getElementById('charCount');
+        const letterCount = document.getElementById('letterCount');
+
+        function updateCount() {
+            const text = textInput.value;
+            const totalChars = text.length;
+            const letterChars = (text.match(/[a-zA-Z]/g) || []).length;
+
+            charCount.textContent = `Total characters: ${totalChars}`;
+            letterCount.textContent = `Letters only: ${letterChars}`;
+        }
+        textInput.addEventListener('input', updateCount);
+    </script>
+
+    <h1>Problem 3: Maximation of Image</h1>
+    <span class="material-symbols-outlined">fullscreen</span>
+
+    <div class="image-container">
+        <img src="aurora.jpg" alt="Aurora Borealis" id="myImage">
+    </div>
+
+    <div id="fullscreen-overlay">
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+        <i class="material-icons" id="close-icon">close</i>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#myImage").click(function() {
+                var imgSrc = $(this).attr("src");
+                $("#fullscreen-image").attr("src", imgSrc);
+                $("#fullscreen-overlay").fadeIn(300);
+            });
+
+            $("#close-icon").click(function() {
+                $("#fullscreen-overlay").fadeOut(300);
+            });
         });
     </script>
 </body>
