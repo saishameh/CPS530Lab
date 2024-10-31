@@ -10,6 +10,7 @@
         #myImage {
             width: 100px;
             height: 100px;
+            cursor: pointer;
         }
     </style>
 
@@ -118,17 +119,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#myImage").click(function() {
-                var imgSrc = $(this).attr("src");
-                $("#fullscreen-image").attr("src", imgSrc);
-                $("#fullscreen-overlay").fadeIn(300);
-            });
-
-            $("#close-icon").click(function() {
-                $("#fullscreen-overlay").fadeOut(300);
-            });
+         $(document).ready(function(){
+        $("#myImage").click(function(){
+            $(this).animate({
+                width: "200px",   // New width
+                height: "200px"   // New height
+            }, 2000);
         });
+    });
     </script>
 </body>
 </html>
